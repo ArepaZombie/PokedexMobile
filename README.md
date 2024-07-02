@@ -1,7 +1,7 @@
 
 
 **POKEDEX – PROYECTO FINAL**
-**Video de Presentación: <https://youtu.be/ZLoMlcySuzQ>**
+**Video de Presentación: <https://youtu.be/l_iKqRSiMwM>**
 
 **ESCUELA	:	TECNOLOGÍAS DE LA INFORMACIÓN**
 
