@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.ListarPokemonesActivity">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E91E63"
+    android:orientation="vertical">
+
+    <ImageView
+      android:layout_width="187dp"
+      android:layout_height="165dp"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentEnd="true"
+      android:layout_gravity="end"
+      android:layout_marginTop="-80dp"
+      android:layout_marginEnd="-80dp"
+      android:adjustViewBounds="true"
+      android:alpha="0.10"
+      android:background="@drawable/img_1" />
+
+    <TextView
+      android:id="@+id/textView6"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="10dp"
+      android:text="Lista Podekex"
+      android:textColor="#FFFFFF"
+      android:textSize="24sp"
+      android:textStyle="bold" />
+
+  </LinearLayout>
+
+  <ListView
+    android:id="@+id/lvPokedex"
+    android:layout_width="match_parent"
+    android:layout_height="520dp"
+    android:layout_margin="10dp" />
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+      android:id="@+id/btnAtras"
+      android:layout_width="111dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="5dp"
+      android:layout_weight="0"
+      android:backgroundTint="#E91E63"
+      android:text="Anterior" />
+
+    <Button
+      android:id="@+id/btnAdelante"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="5dp"
+      android:backgroundTint="#E91E63"
+      android:text="Siguiente" />
+  </LinearLayout>
+
+</LinearLayout>
