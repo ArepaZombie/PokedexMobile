@@ -15,6 +15,7 @@ import com.example.api.api.PokeApi
 import com.example.loginpokedex.R
 import com.example.loginpokedex.entidades.Pokemon
 import com.example.loginpokedex.entidades.ResponsePokemon
+import com.example.pokedexcibertec.UI.PokemonAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -45,14 +46,14 @@ class ListarPokemonesActivity : AppCompatActivity() {
       else{
         btnanterior.setOnClickListener {
           val i = Intent(this,ListarPokemonesActivity::class.java)
-          i.putExtra("n",pagina-10)
+          i.putExtra("n",pagina-5)
           startActivity(i)
         }
       }
 
       btnsiguiente.setOnClickListener {
         val i = Intent(this,ListarPokemonesActivity::class.java)
-        i.putExtra("n",pagina+10)
+        i.putExtra("n",pagina+5)
         startActivity(i)
       }
 
@@ -60,9 +61,10 @@ class ListarPokemonesActivity : AppCompatActivity() {
       traerPokemones()
 
       lv.setOnItemClickListener { parent, view, position, id ->
-        val nombre = parent.getItemAtPosition(position).toString()
+        val item:Pokemon? = parent.getItemAtPosition(position) as Pokemon
+        //Log.d("Prueba",item!!.name)
         val i = Intent(applicationContext, DetallePokemonActivity::class.java)
-        i.putExtra("nombre",nombre)
+        i.putExtra("nombre",item!!.name)
         startActivity(i)
       }
 
@@ -72,31 +74,40 @@ class ListarPokemonesActivity : AppCompatActivity() {
 
     }
 
-  fun traerPokemones(){
+  fun traerPokemones() {
     var request = PokeApi.build().getPokemones(pagina)
 
     request.enqueue(object : Callback<ResponsePokemon> {
       override fun onResponse(call: Call<ResponsePokemon>, response: Response<ResponsePokemon>) {
         var pokemones = ArrayList<String>()
-
-        response.body()!!.results.forEach {
-          pokemones.add("${it.name.capitalize()}")
+        if (response.isSuccessful) {
+          val pokemonList = response.body()?.results ?: emptyList()
+          mostrarListaPokemon(pokemonList)
+        } else {
+          Toast.makeText(
+            this@ListarPokemonesActivity,
+            "Error al obtener la lista de Pokémon",
+            Toast.LENGTH_SHORT
+          ).show()
         }
 
-        var adp = ArrayAdapter<String>(
-          applicationContext,
-          android.R.layout.simple_list_item_1,
-          pokemones
-        )
-        lv.adapter = adp
       }
 
       override fun onFailure(call: Call<ResponsePokemon>, t: Throwable) {
-        Toast.makeText(applicationContext, "Error: "+ t.message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "Error: " + t.message, Toast.LENGTH_SHORT).show()
       }
     })
 
-
   }
+
+    private fun mostrarListaPokemon(pokemonList: List<Pokemon>) {
+      val adaptador = PokemonAdapter(
+        this,
+        pokemonList
+      )
+      lv.adapter = adaptador
+    }
+
+
 
 }

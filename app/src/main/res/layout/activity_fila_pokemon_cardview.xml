@@ -20,8 +20,8 @@
 
       <ImageView
         android:id="@+id/imgPoke"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:scaleType="centerCrop"
         tools:srcCompat="@drawable/pk00" />
 
@@ -39,54 +39,37 @@
             android:id="@+id/tvNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:text="NOMBRE"
             android:textColor="#E6E6E6"
             android:textSize="20sp"
             android:textStyle="bold" />
 
           <TextView
+            android:id="@+id/tvId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="# ID"
+            android:text="# ID"
+            android:textAlignment="viewStart"
+            android:textColor="#E6E6E6" />
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:orientation="horizontal">
+
+          <TextView
             android:id="@+id/tvTipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:text="TIPO"
             android:textColor="#E6E6E6"
             android:textSize="16sp" />
 
-          <TextView
-            android:id="@+id/tvGenero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="GENERO"
-            android:textColor="#E6E6E6"
-            android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:orientation="vertical">
-
-          <TextView
-            android:id="@+id/tvId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="# ID"
-            android:text="# ID"
-            android:textAlignment="textEnd"
-            android:textColor="#E6E6E6" />
-
-          <Button
-            android:id="@+id/btnDetallesPK"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
-            android:backgroundTint="#AF1724"
-            android:text="Detalles" />
         </LinearLayout>
 
       </LinearLayout>

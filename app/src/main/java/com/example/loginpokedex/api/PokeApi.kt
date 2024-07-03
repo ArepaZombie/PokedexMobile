@@ -19,7 +19,7 @@ object PokeApi {
 
     interface  ServicioWeb{
         @GET("pokemon")
-        fun getPokemones(@Query("offset") n:Int, @Query("limit") limit:Int=10): Call<ResponsePokemon>
+        fun getPokemones(@Query("offset") n:Int, @Query("limit") limit:Int=5): Call<ResponsePokemon>
 
         @GET("pokemon/{nombre}")
         fun getPokemon(@Path("nombre") nombre:String): Call<Pokemon>
